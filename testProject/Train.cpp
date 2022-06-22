@@ -1,32 +1,32 @@
 #include "Train.h"
 
 //setters
-void Train::setNumberOfTrain(string str)
+void Train::setNumberOfTrain(string& str)
 {
 	numberOfTrain = str;
 }
 
-void Train::setDepartureStation(string str)
+void Train::setDepartureStation(string& str)
 {
 	departureStation = str;
 }
 
-void Train::setArrivalStation(string str)
+void Train::setArrivalStation(string& str)
 {
 	arrivalStation = str;
 }
 
-void Train::setDepartureTime(string str)
+void Train::setDepartureTime(string& str)
 {
 	departureTime = str;
 }
 
-void Train::setArrivalTime(string str)
+void Train::setArrivalTime(string& str)
 {
 	arrivalTime = str;
 }
 
-void Train::setCostOfTicket(string str)
+void Train::setCostOfTicket(string& str)
 {
 	// Конвертуємо рядок до типу double
 	string::size_type sz;
@@ -34,32 +34,32 @@ void Train::setCostOfTicket(string str)
 }
 //getters
 
-string Train::getNumberOfTrain()
+string Train::getNumberOfTrain() const
 {
 	return numberOfTrain;
 }
 
-string Train::getDepartureStation()
+string Train::getDepartureStation() const
 {
 	return departureStation;
 }
 
-string Train::getArrivalStation()
+string Train::getArrivalStation() const
 {
 	return arrivalStation;
 }
 
-string Train::getDepartureTime()
+string Train::getDepartureTime() const
 {
 	return departureTime;
 }
 
-string Train::getArrivalTime()
+string Train::getArrivalTime() const
 {
 	return arrivalTime;
 }
 
-double Train::getCostOfTicket()
+double Train::getCostOfTicket() const
 {
 	return costOfTicket;
 }

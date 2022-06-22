@@ -1,24 +1,24 @@
 #include "ScheduleTable.h"
 
-ScheduleTable::ScheduleTable(const char* filepath)
+ScheduleTable::ScheduleTable(const char* filepath) // У конструкторі беремо шлях до файлу та записуємо дані до масиву вказивників на тип Train
 {
-	string temp; // цей рядок буде збережувати інформацію рядка у файлі. При зчитуванні нового рядка файла будемо додавати інформацію до temp
-	string scanner; // збережує лише проміжок рядку до ;
+	string line; // цей рядок буде збережувати інформацію рядка у файлі. При зчитуванні нового рядка файла будемо додавати інформацію до temp
+	string scanner; // збережує лише проміжок рядку до символу ";"
 	ifstream in(filepath);
 
-	while (getline(in, temp))
+	while (getline(in, line))
 	{
-		removeSpacesFromString(temp); // Видаляємо spaces в рядку
-		changeDotToComma(temp); // замінюємо крапку на кому, бо без коми не враховується залишок (функція, що конвертує, відкидує його)
-		temp += ";"; // Разделить (в кінці кожного рядка немає ';', тому добавимо його)
+		removeSpacesFromString(line); // Видаляємо spaces в рядку
+		changeDotToComma(line); // замінюємо крапку на кому, бо без коми не враховується залишок (функція, що конвертує, відкидує його)
+		line += ";"; // (в кінці кожного рядка немає ';', тому добавимо його)
 		Train* ptr = new Train();
 		allTrains.push_back(ptr);
 
 		int counter = 1;  // Для встановлення даних про маршрут поїзда
 		
-		for (const auto& i : temp)
+		for (const auto& i : line)
 		{
-			if (i == ';')
+			if (i == ';') // посимвольно додаємо букви до scanner, коли зустрічаємо ";" відправляємо ці дані до одного з пунктів та очищуємо scanner
 			{
 				switch (counter)
 				{
@@ -44,7 +44,7 @@ ScheduleTable::ScheduleTable(const char* filepath)
 				counter++;
 				scanner.clear();
 			}
-			else scanner.push_back(i);
+			else scanner += i;
 
 		}
 	}
@@ -52,7 +52,7 @@ ScheduleTable::ScheduleTable(const char* filepath)
 
 void ScheduleTable::removeSpacesFromString(string& str)
 {
-	int length = str.length();
+	size_t length = str.length();
 	for (int i = 0; i < length; i++) 
 	{
 		if (str[i] == ' ') str.erase(i, 1);
@@ -61,7 +61,7 @@ void ScheduleTable::removeSpacesFromString(string& str)
 
 void ScheduleTable::changeDotToComma(string& str)
 {
-	int length = str.length();
+	size_t length = str.length();
 	for (int i = 0; i < length; i++)
 	{
 		if (str[i] == '.') str[i] = ',';

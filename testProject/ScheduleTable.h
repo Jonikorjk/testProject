@@ -13,9 +13,9 @@ private:
 
 public: 
 	ScheduleTable(const char* filepath);
-	friend ostream& operator<<(ostream& out, ScheduleTable st)
+	friend ostream& operator<<(ostream& out, const ScheduleTable& st)
 	{
-		for (auto& i : st.allTrains)
+		for (const auto& i : st.allTrains)
 		{
 			out << "Номер поезда: " << i->getNumberOfTrain() << "\tСтанция отправления: " << i->getDepartureStation() << 
 				"\tСтанция прибытия: " << i->getArrivalStation() << "\tЦена билета: " << std::fixed << std::setprecision(2) << i->getCostOfTicket() <<
