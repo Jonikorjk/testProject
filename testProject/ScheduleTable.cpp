@@ -45,9 +45,27 @@ ScheduleTable::ScheduleTable(const char* filepath) // У конструкторі беремо шлях
 				scanner.clear();
 			}
 			else scanner += i;
-
 		}
 	}
+}
+
+ScheduleTable::~ScheduleTable()
+{
+	for (auto& i : allTrains)
+	{
+		delete i;
+		i = nullptr;
+	}
+}
+
+vector<Train*> ScheduleTable::getInfoAboutTrains() const
+{
+	return allTrains;
+}
+
+Train* ScheduleTable::operator[](int index) const
+{
+	return allTrains[index];
 }
 
 void ScheduleTable::removeSpacesFromString(string& str)

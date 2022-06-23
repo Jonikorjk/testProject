@@ -13,6 +13,7 @@ private:
 
 public: 
 	ScheduleTable(const char* filepath);
+	~ScheduleTable();
 	friend ostream& operator<<(ostream& out, const ScheduleTable& st)
 	{
 		for (const auto& i : st.allTrains)
@@ -23,6 +24,9 @@ public:
 		}
 		return out;
 	}
+	vector<Train*> getInfoAboutTrains() const;
+	Train* operator[](int index) const;
+
 private:
 	void removeSpacesFromString(string& str);
 	void changeDotToComma(string& str);
