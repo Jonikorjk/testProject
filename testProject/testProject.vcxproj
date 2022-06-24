@@ -127,12 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyList.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ScheduleTable.cpp" />
     <ClCompile Include="Train.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyList.h" />
     <ClInclude Include="FilterCategories.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="resource.h" />
