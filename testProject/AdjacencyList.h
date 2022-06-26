@@ -17,8 +17,9 @@ enum Filter
 
 class AdjacencyMatrix
 {
+	friend class Graph;
 private:
-
+	//vector<vector<int>> listData;
 	vector<string> stations;
 	vector<vector<vector<Train*>>> listData;
 	int countOfRibs; // колличество рёбер
@@ -71,18 +72,45 @@ public:
 				if (listData[i][j].size() != 0) countOfRibs++;
 			}
 		}
-
-		//// output
-		//for (size_t i = 0; i < stations.size(); i++)
-		//{
-		//	for (size_t j = 0; j < stations.size(); j++)
-		//	{
-		//		if (list[i][j] != 1)list[i][j] = 0;
-		//	}
-		//}
 	}
 
-	vector<vector<double>> getAdjacencyList(Filter filter)
+	//	for (size_t i = 0; i < listData.size(); i++)
+	//	{
+	//		for (size_t j = 0; j < listData[i].size(); j++)
+	//		{
+	//			for (const auto& k : st.getInfoAboutTrains())
+	//			{
+	//				if (stations[i] == k->getDepartureStation() && stations[j] == k->getArrivalStation())
+	//				{
+	//					listData[i][j] = 1;
+	//				}
+	//			}
+	//		}
+	//	}
+
+	//	for (size_t i = 0; i < stations.size(); i++)
+	//	{
+	//		for (size_t j = 0; j < stations.size(); j++)
+	//		{
+	//			if (listData[i][j] != 1)listData[i][j] = 0;
+	//		}
+	//	}
+
+	//	//// output
+	//	for (size_t i = 0; i < stations.size(); i++)
+	//	{
+	//		for (size_t j = 0; j < stations.size(); j++)
+	//		{
+	//			cout << listData[i][j] << " ";
+	//		}
+	//		cout << endl;
+	//	}
+	//
+
+	vector<vector<vector<Train*>>> getListData() { return listData; }
+
+
+	vector<vector<double>> getAdjacencyMatrix(Filter filter)
 	{
 		vector<vector<double>> AdjacencyList;
 		AdjacencyList.resize(stations.size());

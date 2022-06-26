@@ -9,7 +9,7 @@ class Train
 private:
 	string numberOfTrain;
 	string departureStation, arrivalStation;
-	string departureTime, arrivalTime;
+	int departureTime, arrivalTime;
 	double costOfTicket; 
 
 public:
@@ -23,8 +23,8 @@ public:
 	string getNumberOfTrain() const;
 	string getDepartureStation() const;
 	string getArrivalStation() const;
-	string getDepartureTime() const;
-	string getArrivalTime() const;
+	int getDepartureTime() const;
+	int getArrivalTime() const;
 	double getCostOfTicket() const;
 };
 

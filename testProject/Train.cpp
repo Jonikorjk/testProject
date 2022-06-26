@@ -18,12 +18,36 @@ void Train::setArrivalStation(string& str)
 
 void Train::setDepartureTime(string& str)
 {
-	departureTime = str;
+	string temp;
+	str += ':';
+	int k[3]{ 3600, 60, 1 };
+	for (size_t i = 0, counter = 0; i < str.length(); i++)
+	{
+		if (str[i] == ':')
+		{
+			departureTime += stoi(temp) * k[counter];
+			counter++;
+			temp = "";
+		}
+		else temp += str[i];
+	}
 }
 
 void Train::setArrivalTime(string& str)
 {
-	arrivalTime = str;
+	string temp;
+	str += ':';
+	int k[3]{ 3600, 60, 1 };
+	for (size_t i = 0, counter = 0; i < str.length(); i++)
+	{
+		if (str[i] == ':')
+		{
+			arrivalTime += stoi(temp) * k[counter];
+			counter++;
+			temp = "";
+		}
+		else temp += str[i];
+	}
 }
 
 void Train::setCostOfTicket(string& str)
@@ -49,12 +73,12 @@ string Train::getArrivalStation() const
 	return arrivalStation;
 }
 
-string Train::getDepartureTime() const
+int Train::getDepartureTime() const
 {
 	return departureTime;
 }
 
-string Train::getArrivalTime() const
+int Train::getArrivalTime() const
 {
 	return arrivalTime;
 }

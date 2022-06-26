@@ -9,7 +9,11 @@ int main()
 	setlocale(LC_ALL, "ru");
 	ScheduleTable st("test_task_data.csv");
 	AdjacencyMatrix list(st);
-	Graph graph;
+	Graph graph(list);
 	graph.fillGraph(list, BEST_PRICE);
-	graph.printAdjacencyList();
-}
+	//graph.printAdjacencyList();
+	graph.findAllWays();
+	graph.deleteExcessiveWays();
+	graph.outPutBestPrice(3);
+	graph.bestTimeForEachWay(3);
+} 
