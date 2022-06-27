@@ -1,10 +1,12 @@
 #include "ScheduleTable.h"
 
+using std::string;
+
 ScheduleTable::ScheduleTable(const char* filepath) // У конструкторі беремо шлях до файлу та записуємо дані до масиву вказивників на тип Train
 {
 	string line; // цей рядок буде збережувати інформацію рядка у файлі. При зчитуванні нового рядка файла будемо додавати інформацію до temp
 	string scanner; // збережує лише проміжок рядку до символу ";"
-	ifstream in(filepath);
+	std::ifstream in(filepath);
 
 	while (getline(in, line))
 	{
@@ -58,7 +60,7 @@ ScheduleTable::~ScheduleTable()
 	}
 }
 
-vector<Train*> ScheduleTable::getInfoAboutTrains() const
+std::vector<Train*> ScheduleTable::getInfoAboutTrains() const
 {
 	return allTrains;
 }

@@ -2,27 +2,26 @@
 #define TRAIN
 
 #include <string>
-using namespace std;
 
 class Train
 {
 private:
-	string numberOfTrain;
-	string departureStation, arrivalStation;
+	std::string numberOfTrain;
+	std::string departureStation, arrivalStation;
 	int departureTime, arrivalTime;
 	double costOfTicket; 
 
 public:
-	void setNumberOfTrain(string& str);
-	void setDepartureStation(string& str);
-	void setArrivalStation(string& str);
-	void setDepartureTime(string& str);
-	void setArrivalTime(string& str);
-	void setCostOfTicket(string& str);
+	void setNumberOfTrain(std::string& str);
+	void setDepartureStation(std::string& str);
+	void setArrivalStation(std::string& str);
+	void setDepartureTime(std::string& str);
+	void setArrivalTime(std::string& str);
+	void setCostOfTicket(std::string& str);
 
-	string getNumberOfTrain() const;
-	string getDepartureStation() const;
-	string getArrivalStation() const;
+	std::string getNumberOfTrain() const;
+	std::string getDepartureStation() const;
+	std::string getArrivalStation() const;
 	int getDepartureTime() const;
 	int getArrivalTime() const;
 	double getCostOfTicket() const;

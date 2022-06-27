@@ -2,7 +2,7 @@
 #include "ScheduleTable.h"
 #include "Train.h"
 #include "Graph.h"
-#include "AdjacencyList.h"
+#include "AdjacencyMatrix.h"
 
 int main()
  {
@@ -10,10 +10,9 @@ int main()
 	ScheduleTable st("test_task_data.csv");
 	AdjacencyMatrix list(st);
 	Graph graph(list);
-	graph.fillGraph(list, BEST_PRICE);
-	//graph.printAdjacencyList();
+	graph.fillGraph(list);
 	graph.findAllWays();
 	graph.deleteExcessiveWays();
 	graph.outPutBestPrice(3);
-	graph.bestTimeForEachWay(3);
+	graph.outPutBestTime(3);
 } 

@@ -1,4 +1,5 @@
 #include "Train.h"
+using std::string;
 
 //setters
 void Train::setNumberOfTrain(string& str)
@@ -25,7 +26,7 @@ void Train::setDepartureTime(string& str)
 	{
 		if (str[i] == ':')
 		{
-			departureTime += stoi(temp) * k[counter];
+			departureTime += std::stoi(temp) * k[counter];
 			counter++;
 			temp = "";
 		}
